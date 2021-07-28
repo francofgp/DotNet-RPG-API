@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace dot_net_api_rpg.Models
 {
     public class Character
@@ -11,6 +13,11 @@ namespace dot_net_api_rpg.Models
         public RpgClass Class { get; set; } = RpgClass.Knight;
 
         public User User { get; set; }
+        public Weapon Weapon { get; set; }
+        /* agregado para la relacion many to many, tambien tiene
+        que estar en skill este ultimo atributo */
+        public List<CharacterSkill> CharacterSkills { get; set; }
+
 
     }
 }

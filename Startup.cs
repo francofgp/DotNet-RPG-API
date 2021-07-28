@@ -5,9 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using dot_net_api_rpg.Data;
 using dot_net_api_rpg.Services.CharacterService;
+using dot_net_api_rpg.Services.WeaponService;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -39,6 +41,7 @@ namespace dot_net_api_rpg
             services.AddAutoMapper(typeof(Startup));
             services.AddScoped<ICharacterService, CharacterService>();
             services.AddScoped<IAuthRepository, AuthRepository>();
+
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(options =>
             {
@@ -51,6 +54,9 @@ namespace dot_net_api_rpg
                     ValidateAudience = false
                 };
             });
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped<IWeaponService, WeaponService>();
 
             services.AddSwaggerGen(c =>
             {

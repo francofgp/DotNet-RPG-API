@@ -27,11 +27,13 @@ namespace dot_net_api_rpg.Controllers
         [HttpGet("GetAll")]
         public async Task<IActionResult> Get()
         {
-            int id = int.Parse(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value);
-            return Ok(await _characterService.GetAllCharacters(id));
+            //Forma vieja de conseguir el ID sin injection de HTTP Context
+            /*             int id = int.Parse(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value);
+             */
+            return Ok(await _characterService.GetAllCharacters());
         }
 
-        [AllowAnonymous]
+        /*         [AllowAnonymous]*/ //Para permitir sin token
         [HttpGet("{id}")]
         public async Task<IActionResult> GetSingle(int id)
         {
