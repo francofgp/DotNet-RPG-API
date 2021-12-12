@@ -3,7 +3,7 @@
 This is an API, where you can create your own characters, skill, and users, and fight each others.
 <br>
 
-![Image](https://www.wannapik.com/media/W1siZiIsIjIwMTYvMDgvMjIvNjl6dzM2YnlrcV82ZG11bzJ3cHg3X2NhcnQxODUwLnBuZyJdXQ/17caf01a259a4d30/6dmuo2wpx7_cart1850.png)
+![Image](https://cdn-icons-png.flaticon.com/512/647/647847.png)
 
 Some of the features are: Token authentication, Password Hashing, Many-To-Many relationships and DTOs
 
